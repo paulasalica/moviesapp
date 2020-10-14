@@ -21,7 +21,8 @@ nav {
 }
 
 .logo {
-    margin: 25px 60px;
+    width: 250px;
+    margin: 20px 60px;
     float: left;
 }
 
@@ -37,17 +38,21 @@ nav {
     margin-left: 60px;
 }
 
+.main-nav .active {
+    font-weight: bold;
+}
+
 .main-nav li a:link,
 .main-nav li a:visited {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     transition: color 0.2s; 
 }
 
 .main-nav li a:hover,
 .main-nav li a:active {
-    color: #7077cf;
+    color: #4149bd;
 }
 
 .search {
@@ -69,6 +74,9 @@ nav {
     outline: none;
     color: rgba(238, 238, 238, 0.7);
 }
+
+
+/* --- NAVBAR STICKY --- */
 
 .sticky {
     position: fixed;
@@ -121,15 +129,17 @@ nav {
 
 .item-info h3 {
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
 }
 .item-info .year {
+    font-size: 15px;
     color: #fff;
 }
 
-.item-info .overview {
+.item-info .overv{
     color: #fff;
-    font-size: 20px;
+    font-size: 17px;
+    margin-top: 20px;
 }
 
 

@@ -64,8 +64,8 @@ function showCarousel(movies) {
         <img src="${IMGPATH + movies[i].poster_path}" alt="${movies[i].title}" >
         <div class="item-info">
             <h3>${movies[i].title}</h3>
-            <span class="year">${year}</span>
-            <span class="overview">${movies[i].overview}</span>
+            <span class="year">${year}</span><br>
+            <p class="overv">${movies[i].overview}</p>
         </div>
         `;
        console.log(movies[i].overview);
