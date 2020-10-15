@@ -2,10 +2,11 @@ const APIURL = 'https://api.themoviedb.org/3/discover/movie?api_key=04c35731a5ee
 const IMGPATH = "https://image.tmdb.org/t/p/w1280/";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=";
 
-const main = document.querySelector(".main");
+const main = document.querySelector(".main-movies");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const carouselInner = document.querySelector(".carousel-inner");
+const popularMovies = document.querySelector(".popular-movies");
 
 getMovies(APIURL);
 
@@ -15,8 +16,67 @@ async function getMovies(url) {
 
     console.log(responseData);
 
-    showMovies(responseData.results);
     showCarousel(responseData.results);
+    showTrendingMovies(responseData.results);
+    showMovies(responseData.results);
+}
+
+async function getMoviesSearch(url) {
+    const response = await fetch(url);
+    const responseData = await response.json();
+
+    showMovies(responseData.results);
+}
+
+function showCarousel(movies) {
+    
+    for (let i=0; i<5; i++) {
+        const item = document.createElement('div');
+        
+        if (i==1) {
+            item.classList.add('item', 'active');
+        } else {
+            item.classList.add('item');
+        }
+
+        const releaseDate = movies[i].release_date.split('-');
+        const year = releaseDate[0];
+        
+       item.innerHTML = `
+        <img src="${IMGPATH + movies[i].poster_path}" alt="${movies[i].title}" >
+        <div class="item-info">
+            <h3>${movies[i].title}</h3>
+            <span class="year">${year}</span><br>
+            <p class="overv">${movies[i].overview}</p>
+        </div>
+        `;
+
+        carouselInner.appendChild(item);
+    }
+}
+
+function showTrendingMovies(movies) {
+    popularMovies.innerHTML = '';
+
+    var top5 = movies.sort(function (a, b) { return b.vote_average - a.vote_average; }).slice(0, 5);
+   
+    top5.forEach(movie => {
+        const {poster_path, title, vote_average} = movie;
+
+        const movieEl = document.createElement('li');
+        movieEl.classList.add('popular-movie');
+        
+        movieEl.children.createElement
+
+        movieEl.innerHTML = `
+            <img src="${IMGPATH + poster_path}" alt="${title}" >
+            <div class="popular-movie-info">
+                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+        `;
+
+        popularMovies.appendChild(movieEl);
+    });
 }
 
 function showMovies(movies) {
@@ -45,34 +105,6 @@ function showMovies(movies) {
     });
 }
 
-function showCarousel(movies) {
-    
-    for (let i=0; i<5; i++) {
-        console.log(movies[i]);
-
-        const item = document.createElement('div');
-        if (i==1) {
-            item.classList.add('item', 'active');
-        } else {
-            item.classList.add('item');
-        }
-
-        const releaseDate = movies[i].release_date.split('-');
-        const year = releaseDate[0];
-        
-       item.innerHTML = `
-        <img src="${IMGPATH + movies[i].poster_path}" alt="${movies[i].title}" >
-        <div class="item-info">
-            <h3>${movies[i].title}</h3>
-            <span class="year">${year}</span><br>
-            <p class="overv">${movies[i].overview}</p>
-        </div>
-        `;
-       console.log(movies[i].overview);
-        carouselInner.appendChild(item);
-    }
-}
-
 function getClassByRate(vote) {
     if (vote >= 8) {
         return "green";
@@ -89,7 +121,7 @@ form.addEventListener("submit", (e) => {
     const searchTerm = search.value;
    
     if (searchTerm) {
-        getMovies(SEARCHAPI + searchTerm);
+        getMoviesSearch(SEARCHAPI + searchTerm);
         search.value = '';
     }
 });

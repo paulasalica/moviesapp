@@ -14,9 +14,9 @@
             <div class="row"></div>
                 <img class="logo" src="img/logo_white.png" alt="Movies logo">
                 <ul class="main-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="">Trending Now</a></li>
-                    <li><a href="">Popular</a></li>
+                    <li class="active"><a href="#carousel">Popular</a></li>
+                    <li><a href="#trending-now">Trending Now</a></li>
+                    <li><a href="#movies-online">Movies</a></li>
                 </ul>
                 <form id="form">
                     <input type="text" id="search" placeholder="Search" class="search">
@@ -27,7 +27,7 @@
         
     </header>
 
-    <!-- Carousel -->
+    <!-- Carousel - Section Popular -->
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -53,15 +53,18 @@
         </a>
     </div>
 
-    <!-- Text only for space -->
-    <div class="text">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. sit amet consectetur adipisicing elit. sit amet consectetur adipisicing elit.
-            amet consectetur adipisicing elit.
-        </p>
+    <!-- Section Trending now -->
+    <div class="trending-now" id="trending-now">
+        <h2>Trending Now</h2>
+        <ul class="popular-movies">
+        </ul>
     </div>
 
-    <!-- Movies -->
-    <div class="main">
+    <!-- Section Movies Online -->
+    <div class="main" id="movies-online">
+        <h2>Movies Online</h2>
+        <div class="main-movies">
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
