@@ -41,10 +41,8 @@ nav {
 .main-nav li {
     display: inline-block;
     margin-left: 60px;
-}
-
-.main-nav .active {
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .main-nav li a:link,
@@ -100,6 +98,11 @@ nav {
 .sticky .main-nav li a:visited{
     padding: 16px 0;
     color: #fff;
+}
+
+.sticky .main-nav li a:hover,
+.sticky .main-nav li a:active {
+    color: #535abe;
 }
 
 
@@ -176,14 +179,14 @@ nav {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     margin: 10px;
     width: 220px;
-    z-index: 3;
+    
 }
 
 .popular-movie img {
     width: 100%;
     border-radius: 5px;
-    object-position: 50% 50% !important;
-    
+    opacity: 0.7;
+    z-index: 4;
 }
 
 .popular-movies li::before {
@@ -202,6 +205,7 @@ nav {
     border-radius: 50px;
     font-weight: 700;
     font-size: 20px;
+    z-index: 5;
 }
 
 .popular-movie-info {
@@ -220,6 +224,10 @@ nav {
     box-shadow:20px 20px 50px #373b69;
 }
 
+.popular-movie img:hover{
+    opacity: 1;
+    transform: scale(1.07);
+}
 
 /* ---MOVIES--- */
 .main {

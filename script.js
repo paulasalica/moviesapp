@@ -127,6 +127,8 @@ form.addEventListener("submit", (e) => {
 });
 
 
+
+
 $(document).ready(function(){
   
     /* for the sticky navigation */
