@@ -97,7 +97,7 @@ function showMovies(movies) {
             </div>
             <div class="overview">
                 <h3>Overview:</h3>
-                ${overview}
+                <p class="text">${overview}</p>
             </div>
         `;
 
@@ -125,9 +125,6 @@ form.addEventListener("submit", (e) => {
         search.value = '';
     }
 });
-
-
-
 
 $(document).ready(function(){
   

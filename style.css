@@ -287,7 +287,7 @@ nav {
 }
 
 .overview {
-    background-color: #fff;
+    backdrop-filter: blur(10px);
     padding: 30px;
     position: absolute;
     max-height: 100;
@@ -302,12 +302,12 @@ nav {
     margin-top: 0;
 }
 
-.movie:hover .overview {
-    transform: translateY(0);
+.overview h3,
+.overview .text {
+    color: #fff;
+    font-weight: 500;
 }
 
-.text {
-    color: #fff;
-    font-size: 50px;
-    margin: 100px 100px;
+.movie:hover .overview {
+    transform: translateY(0);
 }
