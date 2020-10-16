@@ -29,30 +29,32 @@ async function getMoviesSearch(url) {
 }
 
 function showCarousel(movies) {
+    const populars = movies.sort(function (a, b) { return b.popularity - a.popularity; }).slice(0, 5);
+    console.log(populars);
     
     for (let i=0; i<5; i++) {
         const item = document.createElement('div');
         
-        if (i==1) {
+        if (i==0) {
             item.classList.add('item', 'active');
         } else {
             item.classList.add('item');
         }
 
-        const releaseDate = movies[i].release_date.split('-');
+        const releaseDate = populars[i].release_date.split('-');
         const year = releaseDate[0];
         
        item.innerHTML = `
-        <img src="${IMGPATH + movies[i].poster_path}" alt="${movies[i].title}" >
+        <img src="${IMGPATH + populars[i].poster_path}" alt="${populars[i].title}" >
         <div class="item-info">
-            <h3>${movies[i].title}</h3>
+            <h3>${populars[i].title}</h3>
             <span class="year">${year}</span><br>
-            <p class="overv">${movies[i].overview}</p>
+            <p class="overv">${populars[i].overview}</p>
         </div>
         `;
 
         carouselInner.appendChild(item);
-    }
+    }; 
 }
 
 function showTrendingMovies(movies) {
