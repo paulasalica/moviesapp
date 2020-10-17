@@ -140,5 +140,25 @@ $(document).ready(function(){
     }, {
         offset: '60%'
     });
+
+    $('.mobile-nav-icon').click(function() {
+        const options = $('.options');
+        const icon = $('.mobile-nav-icon i');
+        const nav = $('nav');
+
+        options.slideToggle(200);
+
+        if (icon.hasClass('glyphicon-menu-hamburger')) {
+            icon.addClass('glyphicon-remove');
+            icon.removeClass('glyphicon-menu-hamburger');
+        } else {
+            icon.addClass('glyphicon-menu-hamburger');
+            icon.removeClass('glyphicon-remove');
+        }
+
+        if (nav.hasClass('sticky')) {
+            nav.removeClass('sticky');
+        }
+    });
 });
 
