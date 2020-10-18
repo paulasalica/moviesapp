@@ -146,7 +146,7 @@ $(document).ready(function(){
         const icon = $('.mobile-nav-icon i');
         const nav = $('nav');
 
-        options.slideToggle(200);
+        options.slideToggle(400);
 
         if (icon.hasClass('glyphicon-menu-hamburger')) {
             icon.addClass('glyphicon-remove');
