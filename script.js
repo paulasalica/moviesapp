@@ -7,6 +7,7 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const carouselInner = document.querySelector(".carousel-inner");
 const popularMovies = document.querySelector(".popular-movies");
+const options = document.querySelectorAll('.options li a');
 
 getMovies(APIURL);
 
@@ -159,6 +160,11 @@ $(document).ready(function(){
         if (nav.hasClass('sticky')) {
             nav.removeClass('sticky');
         }
+    });
+
+    $('.options li a').click(function(e) {
+        $(this).parent().siblings().removeClass('active').end().addClass('active');
+        e.preventDefault();
     });
 });
 
