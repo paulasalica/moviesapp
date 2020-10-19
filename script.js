@@ -8,6 +8,7 @@ const search = document.getElementById("search");
 const carouselInner = document.querySelector(".carousel-inner");
 const popularMovies = document.querySelector(".popular-movies");
 const options = document.querySelectorAll('.options li a');
+const mobileIcon = document.querySelector('.mobile-nav-icon');
 
 getMovies(APIURL);
 
@@ -166,5 +167,15 @@ $(document).ready(function(){
         $(this).parent().siblings().removeClass('active').end().addClass('active');
         e.preventDefault();
     });
+        
+    
+    const displayAttribute = window.getComputedStyle(mobileIcon).getPropertyValue('display');
+    const icon = document.querySelector('.glyphicon');
+    if(displayAttribute=='block') {
+        icon.setAttribute('aria-hidden', true);
+    } else {
+        icon.setAttribute('aria-hidden', false);
+    }
+
 });
 
