@@ -167,7 +167,6 @@ $(document).ready(function(){
         $(this).parent().siblings().removeClass('active').end().addClass('active');
         e.preventDefault();
     });
-        
     
     const displayAttribute = window.getComputedStyle(mobileIcon).getPropertyValue('display');
     const icon = document.querySelector('.glyphicon');
