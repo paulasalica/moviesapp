@@ -148,17 +148,41 @@ $(document).ready(function(){
         options.slideToggle(400);
 
         if (icon.hasClass('glyphicon-menu-hamburger')) {
+            document.querySelector('.options').style.display = "block";
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-menu-hamburger');
+            mobileIcon.style
         } else {
             icon.addClass('glyphicon-menu-hamburger');
             icon.removeClass('glyphicon-remove');
+
         }
 
         if (nav.hasClass('sticky')) {
             nav.removeClass('sticky');
         }
     });
+
+    // var contador = 1;
+    // function main(){
+    //     $('.mobile-nav-icon').click(function(){
+    //         // $('nav').toggle(); 
+    
+    //         if(contador == 1){
+    //             $('.options').animate({
+    //                 left: '0'
+    //             });
+    //             contador = 0;
+    //         } else {
+    //             contador = 1;
+    //             $('options').animate({
+    //                 left: '-100%'
+    //             });
+    //         }
+    
+    //     });
+    // }
+    // main();
 
     $('.options li a').click(function(e) {
         $(this).parent().siblings().removeClass('active').end().addClass('active');

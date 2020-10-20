@@ -6,12 +6,12 @@
     }
 
     .options {
-        position: absolute;
+        position: fixed;
         top:0;
         left:0;
         height: 400px;
         width: 310px;
-        display: block;
+        display: none;
         z-index: 3;
         background-color: rgb(34, 37, 75, 0.85);
     }
