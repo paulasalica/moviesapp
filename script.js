@@ -163,27 +163,6 @@ $(document).ready(function(){
         }
     });
 
-    // var contador = 1;
-    // function main(){
-    //     $('.mobile-nav-icon').click(function(){
-    //         // $('nav').toggle(); 
-    
-    //         if(contador == 1){
-    //             $('.options').animate({
-    //                 left: '0'
-    //             });
-    //             contador = 0;
-    //         } else {
-    //             contador = 1;
-    //             $('options').animate({
-    //                 left: '-100%'
-    //             });
-    //         }
-    
-    //     });
-    // }
-    // main();
-
     $('.options li a').click(function(e) {
         $(this).parent().siblings().removeClass('active').end().addClass('active');
         e.preventDefault();
