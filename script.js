@@ -10,29 +10,26 @@ const popularMovies = document.querySelector(".popular-movies");
 const options = document.querySelectorAll('.options li a');
 const mobileIcon = document.querySelector('.mobile-nav-icon');
 
-getMovies(APIURL);
+let flagSearch = false;
 
-async function getMovies(url) {
+getMovies(APIURL, flagSearch);
+
+async function getMovies(url, flagSearch) {
     const response = await fetch(url);
     const responseData = await response.json();
 
     console.log(responseData);
 
-    showCarousel(responseData.results);
-    showTrendingMovies(responseData.results);
-    showMovies(responseData.results);
-}
-
-async function getMoviesSearch(url) {
-    const response = await fetch(url);
-    const responseData = await response.json();
+    if (flagSearch == false) {
+        showCarousel(responseData.results);
+        showTrendingMovies(responseData.results);
+    }
 
     showMovies(responseData.results);
 }
 
 function showCarousel(movies) {
     const populars = movies.sort(function (a, b) { return b.popularity - a.popularity; }).slice(0, 5);
-    console.log(populars);
     
     for (let i=0; i<5; i++) {
         const item = document.createElement('div');
@@ -125,7 +122,7 @@ form.addEventListener("submit", (e) => {
     const searchTerm = search.value;
    
     if (searchTerm) {
-        getMoviesSearch(SEARCHAPI + searchTerm);
+        getMovies(SEARCHAPI + searchTerm, true);
         search.value = '';
     }
 });
