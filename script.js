@@ -10,6 +10,7 @@ const popularMovies = document.querySelector(".popular-movies");
 const options = document.querySelectorAll('.options li a');
 const mobileIcon = document.querySelector('.mobile-nav-icon');
 
+
 let flagSearch = false;
 
 getMovies(APIURL, flagSearch);
@@ -125,7 +126,7 @@ form.addEventListener("submit", (e) => {
         getMovies(SEARCHAPI + searchTerm, true);
         search.value = '';
     }
-    
+
     window.location.href = "#movies-online";
 });
 
@@ -144,29 +145,23 @@ $(document).ready(function(){
 
     $('.mobile-nav-icon').click(function() {
         const options = $('.options');
-        const m = $('.main-nav');
         const icon = $('.mobile-nav-icon i');
 
         options.slideToggle();
-        m.slideToggle();
-        
 
         if (icon.hasClass('glyphicon-menu-hamburger')) {
-            options.style.display = "block";
-            m.style.display = "block";
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-menu-hamburger');
             mobileIcon.style
         } else {
             icon.addClass('glyphicon-menu-hamburger');
             icon.removeClass('glyphicon-remove');
-
         }
     });
 
-    $('.options li a').click(function(e) {
-        $(this).parent().siblings().removeClass('active').end().addClass('active');
-        e.preventDefault();
+    $(".option-nav").click(function() {
+        $(".option-nav").parent().removeClass("active");
+        $(this).parent().addClass("active");
     });
     
     const displayAttribute = window.getComputedStyle(mobileIcon).getPropertyValue('display');
