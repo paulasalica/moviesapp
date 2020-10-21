@@ -131,8 +131,7 @@ form.addEventListener("submit", (e) => {
 });
 
 $(document).ready(function(){
-  
-    /* for the sticky navigation */
+
     $('.main').waypoint(function(direction) {
         if (direction == "down") {
             $('nav').addClass('sticky');
