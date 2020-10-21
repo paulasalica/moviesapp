@@ -1,3 +1,9 @@
+/* @media only screen and (max-width: 1920px) {
+    .item-info h3 {
+        color: red;
+    }
+} */
+
 @media only screen and (max-width: 1200px) {
     
     .logo {

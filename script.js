@@ -125,6 +125,8 @@ form.addEventListener("submit", (e) => {
         getMovies(SEARCHAPI + searchTerm, true);
         search.value = '';
     }
+    
+    window.location.href = "#movies-online";
 });
 
 $(document).ready(function(){
@@ -142,13 +144,16 @@ $(document).ready(function(){
 
     $('.mobile-nav-icon').click(function() {
         const options = $('.options');
+        const m = $('.main-nav');
         const icon = $('.mobile-nav-icon i');
-        const nav = $('nav');
 
-        options.slideToggle(400);
+        options.slideToggle();
+        m.slideToggle();
+        
 
         if (icon.hasClass('glyphicon-menu-hamburger')) {
-            document.querySelector('.options').style.display = "block";
+            options.style.display = "block";
+            m.style.display = "block";
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-menu-hamburger');
             mobileIcon.style
@@ -156,10 +161,6 @@ $(document).ready(function(){
             icon.addClass('glyphicon-menu-hamburger');
             icon.removeClass('glyphicon-remove');
 
-        }
-
-        if (nav.hasClass('sticky')) {
-            nav.removeClass('sticky');
         }
     });
 
@@ -177,4 +178,5 @@ $(document).ready(function(){
     }
 
 });
+
 
