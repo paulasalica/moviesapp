@@ -37,7 +37,6 @@
         background-color: rgb(34, 37, 75, 0.85);
     }
 
-  
     .mobile-nav-icon{
         display: inline-block;
         top: 0;
@@ -45,7 +44,7 @@
 
     .main-nav,
     .sticky .main-nav {
-        margin: 170px 10px 20px 10px;
+        margin: 170px 10px 20px;
         padding: 0;;
         float: left;
         z-index: 5;

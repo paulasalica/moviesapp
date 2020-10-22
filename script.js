@@ -15,6 +15,7 @@ var flagSearch = false;
 
 getMovies(APIURL, flagSearch);
 
+// This function return Movies depending the section 
 async function getMovies(url, flagSearch) {
     const response = await fetch(url);
     const responseData = await response.json();
@@ -29,6 +30,7 @@ async function getMovies(url, flagSearch) {
     showMovies(responseData.results);
 }
 
+// Carousel section - This function show de carousel
 function showCarousel(movies) {
     const populars = movies.sort(function (a, b) { return b.popularity - a.popularity; }).slice(0, 5);
     
@@ -57,6 +59,7 @@ function showCarousel(movies) {
     }; 
 }
 
+// Trending Now section - This function show the top 5 of movies with more votes
 function showTrendingMovies(movies) {
     popularMovies.innerHTML = '';
 
@@ -81,6 +84,7 @@ function showTrendingMovies(movies) {
     });
 }
 
+// Movies section - This function displayed all movies
 function showMovies(movies) {
 
     main.innerHTML = '';
@@ -107,6 +111,7 @@ function showMovies(movies) {
     });
 }
 
+// This function return a color depending the vote
 function getClassByRate(vote) {
     if (vote >= 8) {
         return "green";
@@ -117,6 +122,7 @@ function getClassByRate(vote) {
     }
 }
 
+// Search movie
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -132,6 +138,7 @@ form.addEventListener("submit", (e) => {
 
 $(document).ready(function(){
 
+    // For sticky navigation
     $('.main').waypoint(function(direction) {
         if (direction == "down") {
             $('nav').addClass('sticky');
@@ -140,6 +147,7 @@ $(document).ready(function(){
         }
     });
 
+    // For mobile icon, expand and close menu
     $('.mobile-nav-icon').click(function() {
         const options = $('.options');
         const icon = $('.mobile-nav-icon i');
@@ -149,18 +157,19 @@ $(document).ready(function(){
         if (icon.hasClass('glyphicon-menu-hamburger')) {
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-menu-hamburger');
-            mobileIcon.style
         } else {
             icon.addClass('glyphicon-menu-hamburger');
             icon.removeClass('glyphicon-remove');
         }
     });
 
+    // Dinamic class active por navbar
     $(".option-nav").click(function() {
         $(".option-nav").parent().removeClass("active");
         $(this).parent().addClass("active");
     });
     
+    // Attribute for mobile icon when it's displayed or not
     const displayAttribute = window.getComputedStyle(mobileIcon).getPropertyValue('display');
     const icon = document.querySelector('.glyphicon');
     if(displayAttribute=='block') {
