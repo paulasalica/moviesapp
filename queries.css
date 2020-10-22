@@ -1,8 +1,24 @@
-/* @media only screen and (max-width: 1920px) {
-    .item-info h3 {
-        color: red;
+@media only screen and (min-width: 1920px) {
+    .popular-movie {
+        margin: 10px 50px;
     }
-} */
+
+    .carousel {
+        margin-bottom: 50px;
+    }
+
+    .carousel .item {
+        height: 1090px;
+    }
+
+    .carousel .item img {
+        object-position: center -240px;
+    }
+
+    .trending-now {
+        margin-bottom: 80px;
+    }
+}
 
 @media only screen and (max-width: 1200px) {
     
