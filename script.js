@@ -11,7 +11,7 @@ const options = document.querySelectorAll('.options li a');
 const mobileIcon = document.querySelector('.mobile-nav-icon');
 
 
-let flagSearch = false;
+var flagSearch = false;
 
 getMovies(APIURL, flagSearch);
 
