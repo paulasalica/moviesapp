@@ -138,8 +138,6 @@ $(document).ready(function(){
         } else {
             $('nav').removeClass('sticky');
         }
-    }, {
-        offset: '60%'
     });
 
     $('.mobile-nav-icon').click(function() {
@@ -151,7 +149,7 @@ $(document).ready(function(){
         if (icon.hasClass('glyphicon-menu-hamburger')) {
             icon.addClass('glyphicon-remove');
             icon.removeClass('glyphicon-menu-hamburger');
-            // mobileIcon.style
+            mobileIcon.style
         } else {
             icon.addClass('glyphicon-menu-hamburger');
             icon.removeClass('glyphicon-remove');
